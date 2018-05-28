@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ActionCreators from './redux/actionCreators'
+import {Link} from 'react-router-dom'
 
 import logo from './logo.svg'
 
@@ -9,6 +10,12 @@ const Header = props => {
 		<header className="App-header">
 			<img src={logo} className="App-logo" alt="logo" />
 			<h1 className="App-title">Welcome to React</h1>
+			<p>
+				<Link to="/">Home</Link>
+				<Link to="/admin">Admin</Link>
+				<Link to="/restrito">Restrito</Link>
+				<Link to="/login">Login</Link>
+			</p>
 		</header>
 	)
 }
