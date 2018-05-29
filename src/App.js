@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Route , BrowserRouter as Router} from 'react-router-dom'
-import axios from 'axios'
-import jwtDecode from 'jwt-decode'
 
 import store from './redux'
 import {Provider} from 'react-redux'
