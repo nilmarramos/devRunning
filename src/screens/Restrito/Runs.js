@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ActionsCreators from '../../redux/actionCreators'
+import { Table, Button } from 'semantic-ui-react'
 
 class Runs extends Component{
 
@@ -10,12 +11,12 @@ class Runs extends Component{
 
 	renderRun = run => {
 		return (
-			<tr>
-				<td>{run.friendly_name}</td>
-				<td>{run.duration}</td>
-				<td>{run.distance}</td>
-				<td>{run.created}</td>
-			</tr>
+			<Table.Row>
+				<Table.Cell>{run.friendly_name}</Table.Cell>
+				<Table.Cell>{run.duration}</Table.Cell>
+				<Table.Cell>{run.distance}</Table.Cell>
+				<Table.Cell>{run.created}</Table.Cell>
+			</Table.Row>
 		)
 	}
 
@@ -28,11 +29,19 @@ class Runs extends Component{
 		}
 		return (
 			<div>
-				<h1>Runs</h1>
-				<button onClick={() => this.props.create(run)}>Create</button>
-				<table>
-					{this.props.runs.data.map(this.renderRun)}
-				</table>
+				<h1>Corridas</h1>
+				<Button onClick={() => this.props.create(run)}>Criar</Button>
+				<Table celled>
+					<Table.Header>
+						<Table.HeaderCell>Name</Table.HeaderCell>
+						<Table.HeaderCell>Duração</Table.HeaderCell>
+						<Table.HeaderCell>Distancia</Table.HeaderCell>
+						<Table.HeaderCell>Data</Table.HeaderCell>
+					</Table.Header>
+					<Table.Body>
+						{this.props.runs.data.map(this.renderRun)}
+					</Table.Body>
+				</Table>
 			</div>
 		)
 	}
