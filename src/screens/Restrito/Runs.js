@@ -8,9 +8,32 @@ class Runs extends Component{
 		this.props.load()
 	}
 
-	render() {
+	renderRun = run => {
 		return (
-			<h1>Runs</h1>
+			<tr>
+				<td>{run.friendly_name}</td>
+				<td>{run.duration}</td>
+				<td>{run.distance}</td>
+				<td>{run.created}</td>
+			</tr>
+		)
+	}
+
+	render() {
+		const run = {
+			friendly_name: 'run de teste',
+			duration: 100,
+			distance: 100,
+			created: '2018-01-01 00:00:00 '
+		}
+		return (
+			<div>
+				<h1>Runs</h1>
+				<button onClick={() => this.props.create(run)}>Create</button>
+				<table>
+					{this.props.runs.data.map(this.renderRun)}
+				</table>
+			</div>
 		)
 	}
 }
@@ -23,7 +46,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		load: () => dispatch(ActionsCreators.getRunsRequest())
+		load: () => dispatch(ActionsCreators.getRunsRequest()),
+		create: (run) => dispatch(ActionsCreators.createRunRequest(run))
 	}
 }
 
