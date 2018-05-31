@@ -31,7 +31,7 @@ export const getRunsFailure = (state = INITIAL_STATE, action) => {
 export const HANDLERS = {
 	[Types.GET_RUNS_REQUEST]: getRunsRequest,
 	[Types.GET_RUNS_SUCCESS]: getRunsSuccess,
-	[Types.GET_RUNS_FAILURE]:getRunsFailure
+	[Types.GET_RUNS_FAILURE]: getRunsFailure
 }
 
 export default createReducer(INITIAL_STATE, HANDLERS)
